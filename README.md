@@ -10,11 +10,11 @@ Neste desafio você irá implementar uma aplicação de integração com SQLite 
 
 ### Entregável:
 
-* Aplicação com a definição do esquema por meio das classes usando SQLAlchemy
-* Inserção de um conjunto de dados mínimo para manipulação das informações
-* Execução de métodos de recuperação de dados via SQLAlchemy
+- Aplicação com a definição do esquema por meio das classes usando SQLAlchemy
+- Inserção de um conjunto de dados mínimo para manipulação das informações
+- Execução de métodos de recuperação de dados via SQLAlchemy
 
-~~~python
+```python
 # Cria uma base declarativa para as classes
 Base = declarative_base()
 
@@ -41,7 +41,7 @@ class Conta(Base):
     id_cliente = Column(Integer, ForeignKey('cliente.id'), nullable=False)
     saldo = Column(DECIMAL, nullable=False)
     cliente = relationship("Cliente", back_populates="contas")
-~~~
+```
 
 ### Arquivo .py
 
@@ -55,12 +55,12 @@ Você irá implementar um banco NoSQL com mongodb para fornecer uma visão agreg
 
 ### Execute as operações:
 
-* Conecte ao mongo atlas e crie um banco de dados
-* Defina uma coleção bank para criar os documetos de clientes
-* Insira documentos com a estrutura mencionada
-* Escreve instruções de recuperação de informações com base nos pares de chave e valor como feito em aula
+- Conecte ao mongo atlas e crie um banco de dados
+- Defina uma coleção bank para criar os documetos de clientes
+- Insira documentos com a estrutura mencionada
+- Escreve instruções de recuperação de informações com base nos pares de chave e valor como feito em aula
 
-~~~python
+```python
 def connect_to_mongo(uri, db_name):
     client = MongoClient(uri)
     db = client[db_name]
@@ -87,10 +87,10 @@ if __name__ == "__main__":
     # Conectar ao MongoDB Atlas
     db = connect_to_mongo(uri, db_name)
     collection = db[collection_name]
-~~~
+```
 
 ### Arquivo .py
 
-[Pymongo]()
+[Pymongo](https://github.com/devcaiada/sqlalchemy-pymongo/blob/main/mongodb_integration.py)
 
-
+---
