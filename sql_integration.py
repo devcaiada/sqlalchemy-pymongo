@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DECIMAL
+from sqlalchemy import create_engine, Column, Integer, String, BINARY, ForeignKey, DECIMAL
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 
@@ -8,7 +8,7 @@ Base = declarative_base()
 
 # Define a classe CLIENTE
 class Cliente(Base):
-    __tablename__ = 'cliente'
+    __tablename__: str = 'cliente'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     nome = Column(String, nullable=False)
@@ -19,9 +19,9 @@ class Cliente(Base):
 
 # Define a classe CONTA
 class Conta(Base):
-    __tablename__ = 'conta'
+    __tablename__: str = 'conta'
 
-    id = Column(Binary, primary_key=True)
+    id = Column(BINARY, primary_key=True)
     tipo = Column(String, nullable=False)
     agencia = Column(String, nullable=False)
     num = Column(Integer, nullable=False)
@@ -41,7 +41,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Exemplo de como adicionar um cliente e uma conta
-novo_cliente = Cliente(nome='João Silva', cpf='12345678901', endereco='Rua das Flores, 123')
+novo_cliente = Cliente(nome='Caio Arruda', cpf='12345678901', endereco='Rua das Dores, 123')
 session.add(novo_cliente)
 session.commit()
 
